@@ -14,18 +14,11 @@
     <!-- Bootstrap Core CSS -->
     <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- chartist CSS -->
-    <!-- <link href="../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link href="../assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
-    <link href="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet"> -->
+    <link href="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!--This page css - Morris CSS -->
-    <!-- <link href="../assets/plugins/c3-master/c3.min.css" rel="stylesheet"> -->
-
-    <!--alerts CSS -->
-    <link href="../assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-
-    <link href="../assets/plugins/wizard/steps.css" rel="stylesheet">
-    <link href="../assets/plugins/cardjs/card.css" rel="stylesheet">
-
+    <link href="../assets/plugins/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -33,39 +26,9 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <style>
-        .jp-card-focused {
-            border: 1px solid white;
-        }
-        /* .jp-card-display {
-            position: relative;
-        }
-        .jp-card-focused::before {
-            content: '';
-            position: absolute;
-            width: 105%;
-            height: 100%;
-            border: 1px solid white;
-            left: -3%;;
-        } */
-
-        @media (max-width: 640px){
-            .card-payment .d-flex {
-                flex-direction: column;
-                align-items: flex-start !important;
-            }
-
-            .card-wrapper  {
-                width: 110%;
-                margin-left: -20px;
-            }
-        }
-        
-    </style>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 
 <body class="fix-header fix-sidebar card-no-border logo-center">
@@ -632,330 +595,18 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                <div id="app">
-                    <div class="row mt-5" v-if="!mode">
-                        <div class="col-sm-12 col-md-6 text-center" >
-                            <button @click="onModeClicked('qr-list')" type="button" class="btn btn-lg btn-success waves-effect waves-dark mb-5" style="height: 100px;">
-                                <i class="fa fa-qrcode"></i> Scan QR Code
-                            </button>
-                        </div>
-                        <div class="col-sm-12 col-md-6 text-center">
-                            <button data-toggle="modal" data-target="#myModal"  type="button" class="btn btn-lg btn-success waves-effect waves-dark" style="height: 100px;">
-                                <img src="/assets/images/singpass.png" style="width: 100px"> Login
-                            </button>
-                        </div>
+                <div class="row mt-5">
+                    <div class="col-sm-12 col-md-6 text-center" >
+                        <button type="button" class="btn btn-lg btn-success waves-effect waves-dark mb-5" style="height: 100px;">
+                            <i class="fa fa-qrcode"></i> Scan QR Code
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-center">
+                        <button type="button" class="btn btn-lg btn-success waves-effect waves-dark" style="height: 100px;">
+                            <img src="/assets/images/singpass.png" style="width: 100px"> Login
+                        </button>
                     </div>
                 </div>
-   
-                <div class="row page-titles mode-list qr-list d-none">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor">Summon Detail</h3>
-                    </div>
-                    <div class="col-md-7 col-4 align-self-center">
-                        
-                    </div>
-                </div>
-       
-                <div class="wizard-content mode-list qr-list d-none">
-                    <form action="#" class="tab-wizard wizard-circle">
-                        <!-- Step 1 -->
-                        <h6>Summon</h6>
-                        <section class="card">
-                            <section class="card-body">
-
-                                <div class="form-group">
-                                    <label>Summon No</label>
-                                    <h4>5555555</h4> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Fine</label>
-                                    <h4>$13</h4> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Issued On</label>
-                                    <h4>27 Dec 2019</h4> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Due Date</label>
-                                    <h4>02 Feb 2020</h4> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Place of Offence</label>
-                                    <h4>Clarke Quay</h4> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Nature of offence</label>
-                                    <h4>Left a garbage on public place</h4> 
-                                </div>
-
-                            </section>
-                        </section>
-                        <!-- Step 2 -->
-                        <h6>Payment</h6>
-                        <section>
-                            <div class="card card-payment">
-                                <div class="card-body collapse show">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="card-title">Payment Information</h4>
-                                        <div class="icon-container">
-                                            <i class="fa fa-cc-visa fa-2x text-secondary"></i>
-                                            <i class="fa fa-cc-amex fa-2x text-info"></i>
-                                            <i class="fa fa-cc-mastercard fa-2x text-danger"></i>
-                                            <i class="fa fa-cc-discover fa-2x text-warning"></i>
-                                        </div>
-                                    </div>
-                                    
-            
-                                    <div class="form-horizontal m-t-20" id="card-form">
-                                        <div class="card-wrapper mb-3"></div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cardnumber">Credit card number</label>
-                                                    <input type="text" id="cardnumber" name="cardnumber" class="form-control"  placeholder="1111-2222-3333-4444">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cardname">Name on Card</label>
-                                                    <input type="text" id="cardname" name="cardname" placeholder="John More Doe" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="expmonth">Expiry</label>
-                                                    <input type="text" id="expdate" name="expdate" placeholder="MM/YY" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cvv">CVV</label>
-                                                    <input type="text" id="cvv" name="cvv" placeholder="352" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-            
-                                        <!-- <div class="row">
-                                            
-                                        </div> -->
-            
-                                    </div>
-            
-                                </div>
-                            </div> 
-            
-                            <div class="card">
-                                <div class="card-body collapse show">
-                                    <h4 class="card-title">Billing Address</h4>
-            
-                                    <div class="form-horizontal m-t-20">
-                                        <div class="form-group">
-                                            <label for="fullName">Full Name</label>
-                                            <input type="text" id="fullName" name="fullName" placeholder="john@example.com" class="form-control">
-                                        </div>
-            
-                                        <div class="form-group">
-                                            <label for="adr">Address</label>
-                                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" class="form-control">
-                                        </div>
-            
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="city">City</label>
-                                                    <input type="text" id="city" name="city" placeholder="New York" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="zip">Zip</label>
-                                                    <input type="text" id="zip" name="zip" placeholder="10001" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-            
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" id="email" name="email" placeholder="John M. Doe" class="form-control">
-                                        </div>
-            
-                                        <input type="checkbox" id="sameadr" class="filled-in" />
-                                        <label for="sameadr">Shipping address same as billing</label>
-            
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Step 3 -->
-                        <h6>Complete</h6>
-                        <section class="card">
-                           <div class="card-body">
-                            <div class="form-group">
-                                <label>Summon No</label>
-                                <h4>5555555</h4> 
-                            </div>
-                            <div class="form-group">
-                                <label>Paid On</label>
-                                <h4>02 Feb 2020</h4> 
-                            </div>
-                            <div class="form-group">
-                                <label>Status</label>
-                                <h4>Paid</h4> 
-                            </div>
-                           </div>
-                        </section>
-                    </form>
-                </div>
-
-                <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">SingPass Login</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-horizontal">
-                                    <div class="form-group">
-                                        <label>SingPass ID</label>
-                                        <input type="text" class="form-control"  placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control"  placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
-                                <button  onclick="app.onModeClicked('fine-list')" type="button" class="btn btn-success waves-effect" data-dismiss="modal">Login</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-
-                <div class="row page-titles fine-list d-none">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor">Pending Fines</h3>
-                    </div>
-                    <div class="col-md-7 col-4 align-self-center">
-                        
-                    </div>
-                </div>
-
-                <div class="fine-list d-none">
-                    <!-- Comment Row -->
-                    <div class="d-flex flex-row comment-row card">
-                        <div class="comment-text w-100">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h1>$13</h1>
-                                <button type="button" class="btn btn-success waves-effect waves-dark" style="">
-                                    Pay
-                                </button>
-                            </div>
-
-                            <p class="m-b-5">
-                                <div class="form-group">
-                                    <label>Fine No</label>
-                                    <h4>5555555</h4> 
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Issued On</label>
-                                            <h4>27 Dec 2019</h4> 
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Due Date</label>
-                                            <h4>02 Feb 2020</h4> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Place of Offence</label>
-                                            <h4>Clarke Quay</h4> 
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Nature of offence</label>
-                                            <h4>Left a garbage on public place</h4> 
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </p>
-                            <!-- <div class="comment-footer"> 
-                                <span class="text-muted pull-right">12313123</span>
-                                    <span class="label label-info">Pending</span>
-                                <span class="action-icons">
-                                    <a href="javascript:void(0)"><i class="ti-pencil-alt"></i></a>
-                                    <a href="javascript:void(0)"><i class="ti-check"></i></a>
-                                    <a href="javascript:void(0)"><i class="ti-heart"></i></a>    
-                                </span> 
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row comment-row card">
-                        <div class="comment-text w-100">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h1>$13</h1>
-                                <button type="button" class="btn btn-success waves-effect waves-dark" style="">
-                                    Pay
-                                </button>
-                            </div>
-
-                            <p class="m-b-5">
-                                <div class="form-group">
-                                    <label>Fine No</label>
-                                    <h4>5555555</h4> 
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Issued On</label>
-                                            <h4>27 Dec 2019</h4> 
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Due Date</label>
-                                            <h4>02 Feb 2020</h4> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Place of Offence</label>
-                                            <h4>Clarke Quay</h4> 
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Nature of offence</label>
-                                            <h4>Left a garbage on public place</h4> 
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </p>
-                        </div>
-                    </div>
-                </div>
-           
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -1052,109 +703,27 @@
     <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
     <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <script src="../assets/plugins/sweetalert/sweetalert.min.js"></script>
-
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
-    <script src="../assets/plugins/moment/min/moment.min.js"></script>
-    <script src="../assets/plugins/wizard/jquery.steps.min.js"></script>
-    <script src="../assets/plugins/wizard/jquery.validate.min.js"></script>
-    <!-- <script src="../assets/plugins/wizard/steps.js"></script> -->
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-    <!-- <script src="../assets/plugins/chartist-js/dist/chartist.min.js"></script>
-    <script src="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script> -->
+    <script src="../assets/plugins/chartist-js/dist/chartist.min.js"></script>
+    <script src="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <!--c3 JavaScript -->
-    <!-- <script src="../assets/plugins/d3/d3.min.js"></script>
-    <script src="../assets/plugins/c3-master/c3.min.js"></script> -->
+    <script src="../assets/plugins/d3/d3.min.js"></script>
+    <script src="../assets/plugins/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
-    <!-- <script src="js/dashboard1.js"></script> -->
+    <script src="js/dashboard1.js"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-    <script src="../assets/plugins/cardjs/card.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                mode: null,
-                message: 'Hello Vue!'
-            },
-            methods: {
-                onModeClicked(mode) {
-                    this.mode = mode;
-                    $(`.${mode}`).removeClass('d-none')
-                }
-            }
-        })
-    </script>
-
-    <script>
-        $(".tab-wizard").steps({
-            headerTag: "h6"
-            , bodyTag: "section"
-            , transitionEffect: "fade"
-            , titleTemplate: '<span class="step">#index#</span> #title#'
-            , labels: {
-                finish: "Submit"
-            }
-            , onFinished: function (event, currentIndex) {
-                swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
-                console.log(app);
-                $(`.mode-list`).addClass('d-none')
-                app.mode = '';     
-            }
-        });
 
     </script>
-    <script>
-        var card = new Card({
-            // a selector or DOM element for the form where users will
-            // be entering their information
-            form: '#card-form', // *required*
-            // a selector or DOM element for the container
-            // where you want the card to appear
-            container: '.card-wrapper', // *required*
-
-            formSelectors: {
-                numberInput: 'input#cardnumber', // optional — default input[name="number"]
-                expiryInput: 'input#expdate', // optional — default input[name="expiry"]
-                cvcInput: 'input#cvv', // optional — default input[name="cvc"]
-                nameInput: 'input#cardname' // optional - defaults input[name="name"]
-            },
-
-            // width: 200, // optional — default 350px
-            formatting: true, // optional - default true
-
-            // Strings for translation - optional
-            messages: {
-                validDate: 'valid\ndate', // optional - default 'valid\nthru'
-                monthYear: 'mm/yyyy', // optional - default 'month/year'
-            },
-
-            // Default placeholders for rendered fields - optional
-            placeholders: {
-                number: '•••• •••• •••• ••••',
-                name: 'Full Name',
-                expiry: '••/••',
-                cvc: '•••'
-            },
-
-            masks: {
-                cardNumber: '•' // optional - mask card number
-            },
-
-            // if true, will log helpful messages for setting up Card
-            debug: false // optional - default false
-        });
-    </script>
-
-    
 </body>
 
 </html>
