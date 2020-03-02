@@ -53,7 +53,26 @@
             left: -3%;;
         } */
 
+        .summon-payment {
+            
+        }
+
+        .summon-info {
+            min-width: 375px;
+            max-height: 634px;
+            transition: all .2s;
+            overflow: hidden;
+        }
+
+        .summon-info.summon-info__minimized {
+            max-height: 100px;
+        }
+
         @media (max-width: 640px){
+            .page-wrapper {
+                padding-bottom: 120px;
+            }
+            
             .card-payment .d-flex {
                 flex-direction: column;
                 align-items: flex-start !important;
@@ -62,6 +81,24 @@
             .card-wrapper  {
                 width: 110%;
                 margin-left: -20px;
+            }
+
+            .summon-payment {
+                flex-direction: column;
+            }
+
+            .summon-info {
+                flex: 1;
+            }
+
+            .tab-wizard [role=tablist] {
+                display: flex  !important;
+                position: fixed;
+                background: white;
+                bottom: 0;
+                margin: 0  !important;
+                left: 0;
+                z-index: 11;
             }
         }
         
@@ -647,170 +684,240 @@
                     </div>
                 </div>
    
-                <div class="row page-titles mode-list qr-list d-none">
+                <!-- <div class="row page-titles mode-list qr-list d-none">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Summon Detail</h3>
                     </div>
                     <div class="col-md-7 col-4 align-self-center">
                         
                     </div>
-                </div>
-       
-                <div class="wizard-content mode-list qr-list d-none">
-                    <form action="#" class="tab-wizard wizard-circle">
-                        <!-- Step 1 -->
-                        <h6>Summon</h6>
-                        <section class="card">
-                            <section class="card-body">
+                </div> -->
 
+                <div class="d-flex summon-payment">
+
+                    <div style="" class="align-self-start card mode-list qr-list summon-info d-none mt-4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card-body pb-0">
+                                    <h3>Summon Detail</h3>
+                                    <h6 class="card-subtitle m-b-0">Description</h6> 
+                                </div>
+                            </div>
+                            <div class="col-sm-12 b-r align-self-center">
+                                <div class="card-body mb-0">
+                                    <div class="d-flex flex-row">
+                                        <div class="col-4 text-left">
+                                            <div class="round align-self-center round-success"><i class="mdi mdi-currency-usd"></i></div>
+                                        </div>
+                                        <div class="col-8 p-0 align-self-center">
+                                            <h3 class="m-b-0">$31568</h3>
+                                            <h5 class="text-muted m-b-0">Fine</h5> 
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 align-self-center">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row">
+                                        <div class="col-4 text-left">
+                                            <div class="round align-self-center bg-inverse"><i class="mdi mdi-key"></i></div>
+                                        </div>
+                                        <div class="col-8 p-0 align-self-center">
+                                            <h3 class="m-b-0">555555</h3>
+                                            <h5 class="text-muted m-b-0">Summon No</h5> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-t-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>Issued On</label>
+                                        <h4>27 Dec 2019</h4> 
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>Due Date</label>
+                                        <h4>02 Feb 2020</h4> 
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Place of Offence</label>
+                                        <h4>Clarke Quay</h4> 
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Nature of offence</label>
+                                        <h4>Left a garbage on public place</h4> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="wizard-content mode-list qr-list d-none">
+                        <form action="#" class="tab-wizard wizard-circle">
+                            <!-- Step 1 -->
+                            <!-- <h6>Summon</h6>
+                            <section class="card">
+                                <section class="card-body">
+
+                                    <div class="form-group">
+                                        <label>Summon No</label>
+                                        <h4>5555555</h4> 
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Fine</label>
+                                        <h4>$13</h4> 
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Issued On</label>
+                                        <h4>27 Dec 2019</h4> 
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Due Date</label>
+                                        <h4>02 Feb 2020</h4> 
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Place of Offence</label>
+                                        <h4>Clarke Quay</h4> 
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Nature of offence</label>
+                                        <h4>Left a garbage on public place</h4> 
+                                    </div>
+
+                                </section>
+                            </section> -->
+                            <!-- Step 2 -->
+                            <h6>Payment</h6>
+                            <section class="p-0">
+                                <div class="card card-payment">
+                                    <div class="card-body collapse show">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h4 class="card-title">Payment Information</h4>
+                                            <div class="icon-container">
+                                                <i class="fa fa-cc-visa fa-2x text-secondary"></i>
+                                                <i class="fa fa-cc-amex fa-2x text-info"></i>
+                                                <i class="fa fa-cc-mastercard fa-2x text-danger"></i>
+                                                <i class="fa fa-cc-discover fa-2x text-warning"></i>
+                                            </div>
+                                        </div>
+                                        
+                
+                                        <div class="form-horizontal m-t-20" id="card-form">
+                                            <div class="card-wrapper mb-3"></div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cardnumber">Credit card number</label>
+                                                        <input type="text" id="cardnumber" name="cardnumber" class="form-control"  placeholder="1111-2222-3333-4444">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cardname">Name on Card</label>
+                                                        <input type="text" id="cardname" name="cardname" placeholder="John More Doe" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="expmonth">Expiry</label>
+                                                        <input type="text" id="expdate" name="expdate" placeholder="MM/YY" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cvv">CVV</label>
+                                                        <input type="text" id="cvv" name="cvv" placeholder="352" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <!-- <div class="row">
+                                                
+                                            </div> -->
+                
+                                        </div>
+                
+                                    </div>
+                                </div> 
+                
+                                <div class="card">
+                                    <div class="card-body collapse show">
+                                        <h4 class="card-title">Billing Address</h4>
+                
+                                        <div class="form-horizontal m-t-20">
+                                            <div class="form-group">
+                                                <label for="fullName">Full Name</label>
+                                                <input type="text" id="fullName" name="fullName" placeholder="john@example.com" class="form-control">
+                                            </div>
+                
+                                            <div class="form-group">
+                                                <label for="adr">Address</label>
+                                                <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" class="form-control">
+                                            </div>
+                
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="city">City</label>
+                                                        <input type="text" id="city" name="city" placeholder="New York" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="zip">Zip</label>
+                                                        <input type="text" id="zip" name="zip" placeholder="10001" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="text" id="email" name="email" placeholder="John M. Doe" class="form-control">
+                                            </div>
+                
+                                            <input type="checkbox" id="sameadr" class="filled-in" />
+                                            <label for="sameadr">Shipping address same as billing</label>
+                
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Step 3 -->
+                            <h6>Complete</h6>
+                            <section class="card p-0">
+                            <div class="card-body">
                                 <div class="form-group">
                                     <label>Summon No</label>
                                     <h4>5555555</h4> 
                                 </div>
-
                                 <div class="form-group">
-                                    <label>Fine</label>
-                                    <h4>$13</h4> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Issued On</label>
-                                    <h4>27 Dec 2019</h4> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Due Date</label>
+                                    <label>Paid On</label>
                                     <h4>02 Feb 2020</h4> 
                                 </div>
-
                                 <div class="form-group">
-                                    <label>Place of Offence</label>
-                                    <h4>Clarke Quay</h4> 
+                                    <label>Status</label>
+                                    <h4>Paid</h4> 
                                 </div>
-
-                                <div class="form-group">
-                                    <label>Nature of offence</label>
-                                    <h4>Left a garbage on public place</h4> 
-                                </div>
-
+                            </div>
                             </section>
-                        </section>
-                        <!-- Step 2 -->
-                        <h6>Payment</h6>
-                        <section>
-                            <div class="card card-payment">
-                                <div class="card-body collapse show">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="card-title">Payment Information</h4>
-                                        <div class="icon-container">
-                                            <i class="fa fa-cc-visa fa-2x text-secondary"></i>
-                                            <i class="fa fa-cc-amex fa-2x text-info"></i>
-                                            <i class="fa fa-cc-mastercard fa-2x text-danger"></i>
-                                            <i class="fa fa-cc-discover fa-2x text-warning"></i>
-                                        </div>
-                                    </div>
-                                    
-            
-                                    <div class="form-horizontal m-t-20" id="card-form">
-                                        <div class="card-wrapper mb-3"></div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cardnumber">Credit card number</label>
-                                                    <input type="text" id="cardnumber" name="cardnumber" class="form-control"  placeholder="1111-2222-3333-4444">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cardname">Name on Card</label>
-                                                    <input type="text" id="cardname" name="cardname" placeholder="John More Doe" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="expmonth">Expiry</label>
-                                                    <input type="text" id="expdate" name="expdate" placeholder="MM/YY" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cvv">CVV</label>
-                                                    <input type="text" id="cvv" name="cvv" placeholder="352" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-            
-                                        <!-- <div class="row">
-                                            
-                                        </div> -->
-            
-                                    </div>
-            
-                                </div>
-                            </div> 
-            
-                            <div class="card">
-                                <div class="card-body collapse show">
-                                    <h4 class="card-title">Billing Address</h4>
-            
-                                    <div class="form-horizontal m-t-20">
-                                        <div class="form-group">
-                                            <label for="fullName">Full Name</label>
-                                            <input type="text" id="fullName" name="fullName" placeholder="john@example.com" class="form-control">
-                                        </div>
-            
-                                        <div class="form-group">
-                                            <label for="adr">Address</label>
-                                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" class="form-control">
-                                        </div>
-            
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="city">City</label>
-                                                    <input type="text" id="city" name="city" placeholder="New York" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="zip">Zip</label>
-                                                    <input type="text" id="zip" name="zip" placeholder="10001" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-            
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" id="email" name="email" placeholder="John M. Doe" class="form-control">
-                                        </div>
-            
-                                        <input type="checkbox" id="sameadr" class="filled-in" />
-                                        <label for="sameadr">Shipping address same as billing</label>
-            
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Step 3 -->
-                        <h6>Complete</h6>
-                        <section class="card">
-                           <div class="card-body">
-                            <div class="form-group">
-                                <label>Summon No</label>
-                                <h4>5555555</h4> 
-                            </div>
-                            <div class="form-group">
-                                <label>Paid On</label>
-                                <h4>02 Feb 2020</h4> 
-                            </div>
-                            <div class="form-group">
-                                <label>Status</label>
-                                <h4>Paid</h4> 
-                            </div>
-                           </div>
-                        </section>
-                    </form>
+                        </form>
+                    </div>
+
                 </div>
 
                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -857,7 +964,7 @@
                         <div class="comment-text w-100">
                             <div class="d-flex align-items-center justify-content-between">
                                 <h1>$13</h1>
-                                <button type="button" class="btn btn-success waves-effect waves-dark" style="">
+                                <button onclick="onFinePayClicked()" type="button" class="btn btn-success waves-effect waves-dark" style="">
                                     Pay
                                 </button>
                             </div>
@@ -912,7 +1019,7 @@
                         <div class="comment-text w-100">
                             <div class="d-flex align-items-center justify-content-between">
                                 <h1>$13</h1>
-                                <button type="button" class="btn btn-success waves-effect waves-dark" style="">
+                                <button onclick="onFinePayClicked()" type="button" class="btn btn-success waves-effect waves-dark" style="">
                                     Pay
                                 </button>
                             </div>
@@ -1110,6 +1217,11 @@
                 app.mode = '';     
             }
         });
+
+        function onFinePayClicked() {
+            $('.fine-list').addClass('d-none')
+            $('.summon-payment > *').removeClass('d-none')
+        }
 
     </script>
     <script>
