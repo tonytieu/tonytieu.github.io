@@ -39,6 +39,10 @@
     <![endif]-->
 
     <style>
+        .mini-sidebar .page-wrapper {
+            padding-top: 0;
+        }
+
         .jp-card-focused {
             border: 1px solid white;
         }
@@ -113,13 +117,14 @@
 
             .summon-info {
                 min-width: unset;
-                position: fixed;
-                top: 90px;
+                position: sticky;
+                top: 0;
                 left: 0;
-                z-index: 11;
+                z-index: 12;
                 margin-top: 0 !important;
-                margin-bottom: 0;
-                max-height: calc(100vh - 90px - 96px);
+                /* margin-bottom: 0; */
+                /* max-height: calc(100vh - 90px - 96px); */
+                height: 100vh;
                 overflow-y: auto;
             }
 
@@ -185,7 +190,7 @@
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse">
+                <div class="navbar-collapse" style="display: none !important;">
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
@@ -1203,7 +1208,7 @@
     <script src="../assets/plugins/sweetalert/sweetalert.min.js"></script>
 
     <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    <script src="js/custom.js"></script>
     <script src="../assets/plugins/moment/min/moment.min.js"></script>
     <script src="../assets/plugins/wizard/jquery.steps.min.js"></script>
     <script src="../assets/plugins/wizard/jquery.validate.min.js"></script>

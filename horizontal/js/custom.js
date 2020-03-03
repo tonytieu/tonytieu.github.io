@@ -60,9 +60,9 @@ $(function () {
     });
     // topbar stickey on scroll
     
-    $(".fix-header .topbar").stick_in_parent({
+    // $(".fix-header .topbar").stick_in_parent({
         
-    });
+    // });
     
     $('.floating-labels .form-control').on('focus blur', function (e) {
         $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
