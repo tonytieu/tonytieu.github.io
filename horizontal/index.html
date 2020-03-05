@@ -58,6 +58,11 @@
             left: -3%;;
         } */
 
+        .is-form-submitting input {
+            pointer-events: none;
+            background-color: #e9ecef;
+        }
+
         .summon-payment {
             
         }
@@ -67,6 +72,10 @@
             max-height: 634px;
             transition: all .2s;
             overflow: hidden;
+        }
+
+        .summon-info {
+            margin-right: 30px;
         }
 
         .summon-info.summon-info__minimized {
@@ -126,6 +135,7 @@
                 /* max-height: calc(100vh - 90px - 96px); */
                 height: 100vh;
                 overflow-y: auto;
+                margin-right: 0;
             }
 
             .summon-info__minimizer {
@@ -175,7 +185,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/horizontal">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
@@ -450,7 +460,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar">
+        <aside class="left-sidebar d-none">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
@@ -718,8 +728,8 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                <div id="app">
-                    <div class="row mt-5" v-if="!mode">
+                <div id="app" class="pt-5">
+                    <div class="row" v-if="!mode">
                         <div class="col-sm-12 col-md-6 text-center" >
                             <button @click="onModeClicked('qr-list')" type="button" class="btn btn-lg btn-success waves-effect waves-dark mb-5" style="height: 100px;">
                                 <i class="fa fa-qrcode"></i> Scan QR Code
@@ -732,6 +742,7 @@
                         </div>
                     </div>
                 </div>
+                <video id="preview"></video>
    
                 <!-- <div class="row page-titles mode-list qr-list d-none">
                     <div class="col-md-5 col-8 align-self-center">
@@ -974,15 +985,15 @@
 
                 </div>
 
-                <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                <div id="myModal" class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog"  id="loginApp">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title" id="myModalLabel">SingPass Login</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
                             <div class="modal-body">
-                                <div class="form-horizontal">
+                                <div class="form-horizontal" :class="{'is-form-submitting': isSubmitting}">
                                     <div class="form-group">
                                         <label>SingPass ID</label>
                                         <input type="text" class="form-control"  placeholder="">
@@ -994,8 +1005,17 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
-                                <button  onclick="app.onModeClicked('fine-list')" type="button" class="btn btn-success waves-effect" data-dismiss="modal">Login</button>
+                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
+                                
+                                <button class="btn btn-success waves-effect" onclick="loginApp.login()" :disabled="isSubmitting">
+                                    <i class="fa fa-spinner fa-spin mr-2" v-if="isSubmitting"></i>
+                                    <i class="fa fa-check mr-2" v-else-if="isSubmitOk"></i> 
+                                    Login
+                                </p-button>
+<!-- 
+                                <button onclick="app.login" type="button" class="btn btn-success waves-effect">
+                                    Login
+                                </button> -->
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -1043,13 +1063,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <label>Place of Offence</label>
                                             <h4>Clarke Quay</h4> 
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm12 col-md-6">
                                         <div class="form-group">
                                             <label>Nature of offence</label>
                                             <h4>Left a garbage on public place</h4> 
@@ -1245,12 +1265,45 @@
             el: '#app',
             data: {
                 mode: null,
-                message: 'Hello Vue!'
             },
             methods: {
                 onModeClicked(mode) {
                     this.mode = mode;
                     $(`.${mode}`).removeClass('d-none')
+                },
+            }
+        })
+
+        var loginApp = new Vue({
+            el: '#loginApp',
+            data: {
+                progressVal: 0,
+                isSubmitting: false,
+                isSubmitOk: false
+            },
+            methods: {
+                login() {
+                    this.isSubmitting = true;
+
+                    // let circularProgressVal = 0;
+                    let circularProgressValInterval = setInterval(() => {
+                        this.progressVal += 3;
+                    }, 100);
+                    setTimeout(() => {
+                        if(this.progressVal > 100) {
+                            this.progressVal = 100;
+                        }
+                        clearInterval(circularProgressValInterval);
+                        this.isSubmitting = false;
+                        this.step = 2;
+                        this.isSubmitOk = true;
+
+                        setTimeout(() => {
+                            app.onModeClicked('fine-list')
+                            $("#myModal").modal('hide')
+                        }, 1000);
+                        
+                    }, 3500);
                 }
             }
         })
@@ -1281,7 +1334,7 @@
                         this.step = 2;
                         this.isSubmitSuccess = true;
 
-                        swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+                        swal("Paid successfully", "");
                     }, 3500);
                 }
             }
@@ -1363,7 +1416,22 @@
             debug: false // optional - default false
         });
     </script>
-
+    <script type="text/javascript" src="../assets/plugins/instascan.min.js"></script>
+    <script type="text/javascript">
+        let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+        scanner.addListener('scan', function (content) {
+            alert(content);
+        });
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+            scanner.start(cameras[0]);
+            } else {
+            console.error('No cameras found.');
+            }
+        }).catch(function (e) {
+            console.error(e);
+        });
+      </script>
     
 </body>
 
